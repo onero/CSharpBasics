@@ -12,8 +12,7 @@ namespace ConsoleApp3BasicExercises
 
         static void Main(string[] args)
         {
-            int inputNumber1;
-            int inputNumber2;
+            int inputNumber1, inputNumber2, inputNumber3, inputNumber4;
 
             /********BASICS********/
 
@@ -46,7 +45,7 @@ namespace ConsoleApp3BasicExercises
             PrintWelcomeToSpecificMethod("Thrice Multiplication method");
             inputNumber1 = GetInteger();
             inputNumber2 = GetInteger();
-            var inputNumber3 = GetInteger();
+            inputNumber3 = GetInteger();
             MultiplyThreeNumbers(inputNumber1, inputNumber2, inputNumber3);
 
             // Assignment 7
@@ -65,7 +64,7 @@ namespace ConsoleApp3BasicExercises
             inputNumber1 = GetInteger();
             inputNumber2 = GetInteger();
             inputNumber3 = GetInteger();
-            var inputNumber4 = GetInteger();
+            inputNumber4 = GetInteger();
 
             var numbers = new List<int> { inputNumber1, inputNumber2, inputNumber3, inputNumber4 };
             GetAverage(numbers);
