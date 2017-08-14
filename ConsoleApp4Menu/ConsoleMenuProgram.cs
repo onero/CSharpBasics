@@ -8,14 +8,14 @@ namespace ConsoleApp4Menu
 {
     static class ConsoleMenuProgram
     {
-        private static bool UserDone = false;
+        private static bool _userDone;
         private static readonly MenuModel MenuModel = new MenuModel();
         private static readonly CustomerModel CustomerModel = new CustomerModel();
 
         private static void Main(string[] args)
         {
 
-            while (!UserDone)
+            while (!_userDone)
             {
                 MenuManager.DisplayMenu(MenuModel.MenuItems);
 
@@ -53,13 +53,16 @@ namespace ConsoleApp4Menu
                     break;
                 case 5:
                     Console.WriteLine("Exiting program, goodbye!");
-                    UserDone = true;
+                    _userDone = true;
                     break;
                 default:
                     throw new ArgumentException("Not a valid command!");
             }
         }
 
+        /// <summary>
+        /// Give user option to edit a customer
+        /// </summary>
         private static void DisplayEditCustomer()
         {
             ListAllCustomers();
@@ -84,6 +87,9 @@ namespace ConsoleApp4Menu
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// Give user option to delete a customer
+        /// </summary>
         private static void DisplayDeleteCustomer()
         {
             ListAllCustomers();
@@ -102,6 +108,9 @@ namespace ConsoleApp4Menu
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// Give user option to add a customer
+        /// </summary>
         private static void DisplayAddCustomer()
         {
             Console.Write("Please Enter First Name: ");

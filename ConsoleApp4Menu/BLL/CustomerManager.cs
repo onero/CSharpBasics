@@ -5,7 +5,10 @@ namespace ConsoleApp4Menu.BLL
 {
     public static class CustomerManager
     {
-
+        /// <summary>
+        /// Edit a customer
+        /// </summary>
+        /// <param name="customerToEdit"></param>
         public static void EditCustomer(Customer customerToEdit)
         {
 
