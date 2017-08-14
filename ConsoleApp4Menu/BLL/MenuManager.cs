@@ -9,16 +9,15 @@ namespace ConsoleApp4Menu.BLL
         /// <summary>
         /// Get selection from user
         /// </summary>
-        /// <param name="menuItems"></param>
+        /// <param name="numberOfMenuItems"></param>
         /// <returns>Selected menu item as integer</returns>
-        public static int GetUserMenuSelection(string[] menuItems)
+        public static int GetUserMenuSelection(int numberOfMenuItems)
         {
             Console.Write("Please enter your choice: ");
             int selection;
-            int maxIndex = menuItems.Length;
-            while (ParseInteger(out selection) || IsSelectionUnderIndex(selection) || SelectionOverIndex(selection, maxIndex))
+            while (ParseInteger(out selection) || IsSelectionUnderIndex(selection) || SelectionOverIndex(selection, numberOfMenuItems))
             {
-                Console.WriteLine($"You need to select a number between 1 and {maxIndex}");
+                Console.WriteLine($"You need to select a number between 1 and {numberOfMenuItems}");
             }
             Console.WriteLine();
             return selection;

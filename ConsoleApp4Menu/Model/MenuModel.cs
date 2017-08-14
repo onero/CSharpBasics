@@ -51,6 +51,11 @@ namespace ConsoleApp4Menu.Model
             return new List<Customer>(_customers);
         }
 
+        public Customer GetCustomerById(int id)
+        {
+            return _customers[id];
+        }
+
         public void DeleteCustomerById(int customerIdInput)
         {
             _customers.RemoveAt(customerIdInput);

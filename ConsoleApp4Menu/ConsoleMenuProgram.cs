@@ -19,7 +19,7 @@ namespace ConsoleApp4Menu
             {
                 MenuManager.DisplayMenu(MenuModel.MenuItems);
 
-                var userSelection = MenuManager.GetUserMenuSelection(MenuModel.MenuItems);
+                var userSelection = MenuManager.GetUserMenuSelection(MenuModel.MenuItems.Length);
 
                 ReactToUserInput(userSelection);
             }
@@ -49,7 +49,7 @@ namespace ConsoleApp4Menu
                     DisplayDeleteCustomer();
                     break;
                 case 4:
-                    //TODO ALH: "Edit Customer"
+                    DisplayEditCustomer();
                     break;
                 case 5:
                     Console.WriteLine("Exiting program, goodbye!");
@@ -60,17 +60,44 @@ namespace ConsoleApp4Menu
             }
         }
 
+        private static void DisplayEditCustomer()
+        {
+            ListAllCustomers();
+
+            if (CustomerModel.GetCustomers().Any())
+            {
+                Console.WriteLine("Please write id of customer to edit:");
+
+                var customerIdInput = MenuManager.GetSelectedCustomerId(CustomerModel.GetCustomers());
+
+                var selectedCustomer = CustomerModel.GetCustomerById(customerIdInput);
+
+                CustomerManager.EditCustomer(selectedCustomer);
+
+                Console.WriteLine("New customer info:");
+
+                selectedCustomer.DisplayInfo();
+
+            }
+
+
+            Console.WriteLine();
+        }
+
         private static void DisplayDeleteCustomer()
         {
             ListAllCustomers();
 
-            Console.Write("Please write id of customer to delete: ");
+            if (CustomerModel.GetCustomers().Any())
+            {
+                Console.Write("Please write id of customer to delete: ");
 
-            var customerIdInput = MenuManager.GetSelectedCustomerId(CustomerModel.GetCustomers());
+                var customerIdInput = MenuManager.GetSelectedCustomerId(CustomerModel.GetCustomers());
 
-            CustomerModel.DeleteCustomerById(customerIdInput);
+                CustomerModel.DeleteCustomerById(customerIdInput);
 
-            Console.WriteLine("Customer Deleted!");
+                Console.WriteLine("Customer Deleted!");
+            }
 
             Console.WriteLine();
         }
@@ -113,8 +140,7 @@ namespace ConsoleApp4Menu
                 for (int i = 0; i < customers.Count; i++)
                 {
                     Console.WriteLine($"ID: {i}");
-                    Console.WriteLine($"Name: {customers[i].FullName}");
-                    Console.WriteLine($"Address: {customers[i].Address}");
+                    customers[i].DisplayInfo();
                 }
             }
             else
