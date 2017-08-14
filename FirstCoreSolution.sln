@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp2AskName", "Conso
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp3BasicExercises", "ConsoleApp3BasicExercises\ConsoleApp3BasicExercises.csproj", "{A2696272-6316-464A-B2CE-7460C1A8A651}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp4Menu", "ConsoleApp4Menu\ConsoleApp4Menu.csproj", "{EEA7F017-294C-4050-A1C7-ABA7AF7D4A77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp4Menu", "ConsoleApp4Menu\ConsoleApp4Menu.csproj", "{EEA7F017-294C-4050-A1C7-ABA7AF7D4A77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuTests", "MenuTests\MenuTests.csproj", "{1094B9A9-7140-4F96-B20D-FB6712DD37E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{EEA7F017-294C-4050-A1C7-ABA7AF7D4A77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEA7F017-294C-4050-A1C7-ABA7AF7D4A77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEA7F017-294C-4050-A1C7-ABA7AF7D4A77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1094B9A9-7140-4F96-B20D-FB6712DD37E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1094B9A9-7140-4F96-B20D-FB6712DD37E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1094B9A9-7140-4F96-B20D-FB6712DD37E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1094B9A9-7140-4F96-B20D-FB6712DD37E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
