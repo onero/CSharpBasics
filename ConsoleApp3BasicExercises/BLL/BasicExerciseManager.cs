@@ -5,7 +5,6 @@ namespace ConsoleApp3BasicExercises.BLL
 {
     public static class BasicExerciseManager
     {
-
         private const int MaxMultiplicationTableNumber = 10;
 
         public static void CalculatePerimeterAndArea(int radius)
@@ -44,7 +43,8 @@ namespace ConsoleApp3BasicExercises.BLL
             var loginAttempts = 0;
             const int maxLoginAttempts = 3;
 
-            bool loginAccepted = false; ;
+            bool loginAccepted = false;
+            ;
             do
             {
                 Console.WriteLine("Please write username");
@@ -68,12 +68,10 @@ namespace ConsoleApp3BasicExercises.BLL
                     break;
                 }
             } while (!loginAccepted);
-
         }
 
         public static void DisplayTriangleOfNumberWithWidth(int numberToDisplay, int width)
         {
-
             for (int i = width; i > 0; i--)
             {
                 for (int j = 0; j < width; j++)
@@ -147,7 +145,7 @@ namespace ConsoleApp3BasicExercises.BLL
             Console.WriteLine(swuppedString);
         }
 
-        public static string GetFirstCharacterOfString(string inputString)
+        private static string GetFirstCharacterOfString(string inputString)
         {
             return inputString.Substring(0, 1);
         }
