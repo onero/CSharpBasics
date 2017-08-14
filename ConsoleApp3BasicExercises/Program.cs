@@ -166,7 +166,7 @@ namespace ConsoleApp3BasicExercises
             DoBasicCalculation(inputNumber1, operation, inputNumber2);
 
             // Assignment 5
-            PrintWelcomeToSpecificMethod("Calculate oerimeter and area of circle method");
+            PrintWelcomeToSpecificMethod("Calculate perimeter and area of circle method");
             Console.Write("Please provide a radius: ");
             var radius = GetInteger();
             CalculatePerimeterAndArea(radius);
