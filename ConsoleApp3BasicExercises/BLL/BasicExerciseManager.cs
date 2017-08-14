@@ -385,25 +385,19 @@ namespace ConsoleApp3BasicExercises.BLL
 
         public static int GetInteger()
         {
-            bool numbersAccepted = false;
-            var inputNumber = 0;
+            int inputNumber;
 
-            do
+            Console.WriteLine("Please write a number");
+            while (ParseInteger(out inputNumber))
             {
-                try
-                {
-                    Console.WriteLine("Please write number");
-
-                    inputNumber = Convert.ToInt32(Console.ReadLine());
-                    numbersAccepted = true;
-                }
-                catch (FormatException formatException)
-                {
-                    Console.WriteLine("Did you write a number?");
-                    Console.WriteLine(formatException);
-                }
-            } while (!numbersAccepted);
+                Console.WriteLine("Your input was not a number");
+            }
             return inputNumber;
+        }
+
+        private static bool ParseInteger(out int inputNumber)
+        {
+            return !int.TryParse(Console.ReadLine(), out inputNumber);
         }
     }
 }
