@@ -4,11 +4,12 @@ namespace ConsoleApp4Menu.BE
     {
         public string FullName { get; }
 
-        public string Address { get; set; }
+        public string Address { get; }
 
-        public Customer(string firstName, string lastName)
+        public Customer(string firstName, string lastName, string address)
         {
             FullName = $"{firstName} {lastName}";
+            Address = address;
         }
     }
 }

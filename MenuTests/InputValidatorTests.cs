@@ -8,7 +8,7 @@ namespace MenuTests
     {
 
         [TestMethod]
-        public void TestIsValidNameSuccess()
+        public void TestIsValidStringSuccess()
         {
             var validName = "Adam";
 

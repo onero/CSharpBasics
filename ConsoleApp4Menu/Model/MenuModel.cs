@@ -50,5 +50,10 @@ namespace ConsoleApp4Menu.Model
         {
             return new List<Customer>(_customers);
         }
+
+        public void DeleteCustomerById(int customerIdInput)
+        {
+            _customers.RemoveAt(customerIdInput);
+        }
     }
 }

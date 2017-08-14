@@ -19,7 +19,7 @@ namespace MenuTests
         [TestMethod]
         public void TestAddToModelSuccess()
         {
-            var customer = new Customer("Adam", "Hansen");
+            var customer = new Customer("Adam", "Hansen", "Test");
 
             _customerModel.AddCustomer(customer);
 
@@ -30,8 +30,8 @@ namespace MenuTests
         [ExpectedException(typeof(ArgumentException))]
         public void TestAddDuplicateCustomerToModelFailure()
         {
-            var customer = new Customer("Adam", "Hansen");
-            var customerDuplicate = new Customer("Adam", "Hansen");
+            var customer = new Customer("Adam", "Hansen", "Test");
+            var customerDuplicate = new Customer("Adam", "Hansen", "Test");
 
             _customerModel.AddCustomer(customer);
             _customerModel.AddCustomer(customerDuplicate);

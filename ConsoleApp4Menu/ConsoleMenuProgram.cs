@@ -2,28 +2,29 @@
 using ConsoleApp4Menu.BLL;
 using ConsoleApp4Menu.Model;
 using System;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace ConsoleApp4Menu
 {
     static class ConsoleMenuProgram
     {
-
+        private static bool UserDone = false;
         private static readonly MenuModel MenuModel = new MenuModel();
         private static readonly CustomerModel CustomerModel = new CustomerModel();
 
         private static void Main(string[] args)
         {
 
-            var customer1 = new Customer("Adam", "Hansen") { Address = "Da secret place!" };
+            while (!UserDone)
+            {
+                MenuManager.DisplayMenu(MenuModel.MenuItems);
 
-            MenuManager.DisplayMenu(MenuModel.MenuItems);
+                var userSelection = MenuManager.GetUserMenuSelection(MenuModel.MenuItems);
 
-            var userSelection = MenuManager.GetUserSelection(MenuModel.MenuItems);
+                ReactToUserInput(userSelection);
+            }
 
-            ReactToUserInput(userSelection);
 
-            Console.ReadLine();
         }
 
         /// <summary>
@@ -34,38 +35,58 @@ namespace ConsoleApp4Menu
         {
             switch (userSelection)
             {
+                case 0:
+                    //TODO ALH: Rethink :P
+                    Console.WriteLine("You just found the easter egg!\n");
+                    break;
                 case 1:
-                    ListAllCustomers(CustomerModel.GetCustomers());
+                    ListAllCustomers();
                     break;
                 case 2:
                     DisplayAddCustomer();
                     break;
                 case 3:
-                    //TODO ALH: "Delete Customer"
+                    DisplayDeleteCustomer();
                     break;
                 case 4:
                     //TODO ALH: "Edit Customer"
                     break;
                 case 5:
                     Console.WriteLine("Exiting program, goodbye!");
-                    Environment.Exit(0);
+                    UserDone = true;
                     break;
                 default:
                     throw new ArgumentException("Not a valid command!");
             }
-            // Display main menu again for user
-            MenuManager.DisplayMenu(MenuModel.MenuItems);
+        }
+
+        private static void DisplayDeleteCustomer()
+        {
+            ListAllCustomers();
+
+            Console.Write("Please write id of customer to delete: ");
+
+            var customerIdInput = MenuManager.GetSelectedCustomerId(CustomerModel.GetCustomers());
+
+            CustomerModel.DeleteCustomerById(customerIdInput);
+
+            Console.WriteLine("Customer Deleted!");
+
+            Console.WriteLine();
         }
 
         private static void DisplayAddCustomer()
         {
-            Console.Write("Please enter first name: ");
-            var firstName = MenuManager.GetValidName();
+            Console.Write("Please Enter First Name: ");
+            var firstName = MenuManager.GetValidString();
 
-            Console.Write("Please enter last name: ");
-            var lastName = MenuManager.GetValidName();
+            Console.Write("Please Enter Last Name: ");
+            var lastName = MenuManager.GetValidString();
 
-            var newCustomer = new Customer(firstName, lastName);
+            Console.Write("Please Enter Address: ");
+            var address = MenuManager.GetValidString();
+
+            var newCustomer = new Customer(firstName, lastName, address);
 
             try
             {
@@ -75,19 +96,33 @@ namespace ConsoleApp4Menu
             {
                 Console.WriteLine(e.Message);
             }
+            Console.WriteLine();
         }
 
         /// <summary>
         /// List all customers in model
         /// </summary>
-        /// <param name="customers"></param>
-        public static void ListAllCustomers(List<Customer> customers)
+        private static void ListAllCustomers()
         {
-            foreach (var customer in customers)
+            var customers = CustomerModel.GetCustomers();
+            //TODO ALH: Test this!
+            Console.WriteLine("Listing all customers:\n");
+
+            if (customers.Any())
             {
-                Console.WriteLine($"Name: {customer.FullName}");
-                Console.WriteLine($"Address: {customer.Address}");
+                for (int i = 0; i < customers.Count; i++)
+                {
+                    Console.WriteLine($"ID: {i}");
+                    Console.WriteLine($"Name: {customers[i].FullName}");
+                    Console.WriteLine($"Address: {customers[i].Address}");
+                }
             }
+            else
+            {
+                Console.WriteLine("Ain't got no customers...");
+            }
+
+            Console.WriteLine();
         }
 
     }
