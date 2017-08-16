@@ -15,9 +15,12 @@ namespace ConsoleApp4Menu.BLL
         {
             Console.Write("Please enter your choice: ");
             int selection;
-            while (ParseInteger(out selection) || IsSelectionUnderIndex(selection) || SelectionOverIndex(selection, numberOfMenuItems))
+            while (!InputValidation.ParseIntegerFromConsole(out selection) ||
+                   InputValidation.IsSelectionUnderIndex(selection) ||
+                   InputValidation.SelectionOverIndex(selection, numberOfMenuItems))
             {
                 Console.WriteLine($"You need to select a number between 1 and {numberOfMenuItems}");
+                Console.Write("Please enter your choice: ");
             }
             Console.WriteLine();
             return selection;
@@ -32,13 +35,24 @@ namespace ConsoleApp4Menu.BLL
         {
             Console.Write("Please enter your choice: ");
             int selection;
-            int maxIndex = customers.Count - 1;
-            while (ParseInteger(out selection) || IsSelectionUnderIndex(selection) || SelectionOverIndex(selection, maxIndex))
+            while (!InputValidation.ParseIntegerFromConsole(out selection) || !IdExist(customers, selection))
             {
-                Console.WriteLine($"You need to select a number between 0 and {maxIndex}");
+                Console.WriteLine($"Id {selection} is not a valid Id!");
+                Console.Write("Please enter your choice: ");
             }
             Console.WriteLine();
             return selection;
+        }
+
+        /// <summary>
+        /// Return if the Id exists
+        /// </summary>
+        /// <param name="customers"></param>
+        /// <param name="selectedId"></param>
+        /// <returns></returns>
+        private static bool IdExist(List<Customer> customers, int selectedId)
+        {
+            return customers.Exists(c => c.Id == selectedId);
         }
 
         /// <summary>
@@ -56,7 +70,6 @@ namespace ConsoleApp4Menu.BLL
                 Console.WriteLine($"{i + 1}: {menuItems[i]}");
             }
             Console.WriteLine();
-
         }
 
         /// <summary>
@@ -77,25 +90,8 @@ namespace ConsoleApp4Menu.BLL
                 {
                     nameAccepted = true;
                 }
-
             } while (!nameAccepted);
             return inputName;
-        }
-
-        private static bool SelectionOverIndex(int selection, int maxIndex)
-        {
-            return selection > maxIndex;
-        }
-
-        private static bool IsSelectionUnderIndex(int selection)
-        {
-            return selection < 0;
-        }
-
-        private static bool ParseInteger(out int selection)
-        {
-
-            return !int.TryParse(Console.ReadLine(), out selection);
         }
     }
 }

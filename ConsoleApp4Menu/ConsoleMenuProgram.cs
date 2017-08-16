@@ -4,6 +4,7 @@ using ConsoleApp4Menu.Model;
 using System;
 using System.Linq;
 
+
 namespace ConsoleApp4Menu
 {
     static class ConsoleMenuProgram
@@ -15,6 +16,7 @@ namespace ConsoleApp4Menu
         private static void Main(string[] args)
         {
 
+            Console.WriteLine();
             while (!_userDone)
             {
                 MenuManager.DisplayMenu(MenuModel.MenuItems);
@@ -35,10 +37,6 @@ namespace ConsoleApp4Menu
         {
             switch (userSelection)
             {
-                case 0:
-                    //TODO ALH: Rethink :P
-                    Console.WriteLine("You just found the easter egg!\n");
-                    break;
                 case 1:
                     ListAllCustomers();
                     break;
@@ -58,6 +56,8 @@ namespace ConsoleApp4Menu
                 default:
                     throw new ArgumentException("Not a valid command!");
             }
+
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -66,6 +66,8 @@ namespace ConsoleApp4Menu
         private static void DisplayEditCustomer()
         {
             ListAllCustomers();
+
+            Console.WriteLine();
 
             if (CustomerModel.GetCustomers().Any())
             {
@@ -82,9 +84,6 @@ namespace ConsoleApp4Menu
                 selectedCustomer.DisplayInfo();
 
             }
-
-
-            Console.WriteLine();
         }
 
         /// <summary>
@@ -94,9 +93,11 @@ namespace ConsoleApp4Menu
         {
             ListAllCustomers();
 
+            Console.WriteLine();
+
             if (CustomerModel.GetCustomers().Any())
             {
-                Console.Write("Please write id of customer to delete: ");
+                Console.WriteLine("Please write id of customer to delete");
 
                 var customerIdInput = MenuManager.GetSelectedCustomerId(CustomerModel.GetCustomers());
 
@@ -105,7 +106,6 @@ namespace ConsoleApp4Menu
                 Console.WriteLine("Customer Deleted!");
             }
 
-            Console.WriteLine();
         }
 
         /// <summary>
@@ -132,7 +132,6 @@ namespace ConsoleApp4Menu
             {
                 Console.WriteLine(e.Message);
             }
-            Console.WriteLine();
         }
 
         /// <summary>
@@ -141,23 +140,20 @@ namespace ConsoleApp4Menu
         private static void ListAllCustomers()
         {
             var customers = CustomerModel.GetCustomers();
-            //TODO ALH: Test this!
+
             Console.WriteLine("Listing all customers:\n");
 
             if (customers.Any())
             {
-                for (int i = 0; i < customers.Count; i++)
+                foreach (var customer in customers)
                 {
-                    Console.WriteLine($"ID: {i}");
-                    customers[i].DisplayInfo();
+                    customer.DisplayInfo();
                 }
             }
             else
             {
                 Console.WriteLine("Ain't got no customers...");
             }
-
-            Console.WriteLine();
         }
 
     }
