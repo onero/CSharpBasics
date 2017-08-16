@@ -1,16 +1,16 @@
 using ConsoleApp4Menu.BE;
-using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ConsoleApp4Menu.Model
 {
     public class CustomerModel
     {
-        private readonly List<Customer> _customers;
+        private readonly HashSet<Customer> _customers;
 
         public CustomerModel()
         {
-            _customers = new List<Customer>();
+            _customers = new HashSet<Customer>();
         }
 
         /// <summary>
@@ -19,14 +19,7 @@ namespace ConsoleApp4Menu.Model
         /// <param name="customerToAdd"></param>
         public void AddCustomer(Customer customerToAdd)
         {
-            if (!_customers.Exists(c => c.FullName.Equals(customerToAdd.FullName)))
-            {
-                _customers.Add(customerToAdd);
-            }
-            else
-            {
-                throw new ArgumentException("Customer already exists!");
-            }
+            _customers.Add(customerToAdd);
         }
 
         public List<Customer> GetCustomers()
@@ -36,7 +29,7 @@ namespace ConsoleApp4Menu.Model
 
         public Customer GetCustomerById(int id)
         {
-            return _customers.Find(c => c.Id == id);
+            return _customers.First(c => c.Id == id);
         }
 
         /// <summary>

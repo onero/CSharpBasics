@@ -28,24 +28,15 @@ namespace MenuTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void TestAddDuplicateCustomerToModelFailure()
-        {
-            var customer = new Customer("Adam", "Hansen", "Test");
-            var customerDuplicate = new Customer("Adam", "Hansen", "Test");
-
-            _customerModel.AddCustomer(customer);
-            _customerModel.AddCustomer(customerDuplicate);
-        }
-
-        [TestMethod]
         public void TestDeleteFromModelSuccess()
         {
             var customer = new Customer("Adam", "Hansen", "Test");
 
+            var customerId = customer.Id;
+
             _customerModel.AddCustomer(customer);
 
-            _customerModel.DeleteCustomerById(0);
+            _customerModel.DeleteCustomerById(customerId);
 
             Assert.IsFalse(_customerModel.GetCustomers().Any());
         }
