@@ -1,7 +1,7 @@
-﻿using ConsoleApp4Menu.BE;
-using System;
+﻿using System;
+using ConsoleApp4Menu.BE;
 
-namespace ConsoleApp4Menu.BLL
+namespace MenuBLL
 {
     public static class CustomerManager
     {

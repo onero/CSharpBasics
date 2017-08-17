@@ -1,6 +1,4 @@
-﻿using ConsoleApp4Menu.BLL;
-
-namespace ConsoleApp4Menu.BE
+﻿namespace MenuBLL
 {
     public enum ETest
     {

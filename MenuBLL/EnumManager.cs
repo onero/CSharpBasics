@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace ConsoleApp4Menu.BLL
+namespace MenuBLL
 {
     public static class EnumManager
     {

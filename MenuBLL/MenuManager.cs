@@ -1,8 +1,9 @@
-﻿using ConsoleApp4Menu.BE;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using ConsoleApp4Menu.BE;
+using ConsoleApp4Menu.BLL;
 
-namespace ConsoleApp4Menu.BLL
+namespace MenuBLL
 {
     public static class MenuManager
     {
