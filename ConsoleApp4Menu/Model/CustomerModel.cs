@@ -41,5 +41,15 @@ namespace ConsoleApp4Menu.Model
             var customerToDelete = GetCustomerById(idToRemove);
             _customers.Remove(customerToDelete);
         }
+
+        /// <summary>
+        /// Search for customer by name
+        /// </summary>
+        /// <param name="searchString"></param>
+        /// <returns></returns>
+        public Customer SearchForCustomerName(string searchString)
+        {
+            return _customers.FirstOrDefault(c => c.FullName.Contains(searchString));
+        }
     }
 }

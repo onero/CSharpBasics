@@ -39,26 +39,37 @@ namespace ConsoleApp4Menu
             switch (userSelection)
             {
                 case 1:
-                    ListAllCustomers();
-                    break;
-                case 2:
-                    DisplayAddCustomer();
-                    break;
-                case 3:
-                    DisplayDeleteCustomer();
-                    break;
-                case 4:
-                    DisplayEditCustomer();
-                    break;
-                case 5:
                     Console.WriteLine("Exiting program, goodbye!");
                     _userDone = true;
+                    break;
+                case 2:
+                    ListAllCustomers();
+                    break;
+                case 3:
+                    DisplayAddCustomer();
+                    break;
+                case 4:
+                    DisplayDeleteCustomer();
+                    break;
+                case 5:
+                    DisplayEditCustomer();
+                    break;
+                case 6:
+                    SearchForCustomer();
                     break;
                 default:
                     throw new ArgumentException("Not a valid command!");
             }
 
             Console.WriteLine();
+        }
+
+        private static void SearchForCustomer()
+        {
+            Console.WriteLine($"Please enter a name to search for");
+            var searchString = MenuManager.GetValidString();
+            var customerFromSearch = CustomerModel.SearchForCustomerName(searchString);
+            customerFromSearch.DisplayInfo();
         }
 
         /// <summary>

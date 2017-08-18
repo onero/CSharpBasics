@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp4Menu", "ConsoleA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MenuTests", "MenuTests\MenuTests.csproj", "{1094B9A9-7140-4F96-B20D-FB6712DD37E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuBLL", "MenuBLL\MenuBLL.csproj", "{F100579D-65A8-41EF-88A2-2C17304BEDD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MenuBLL", "MenuBLL\MenuBLL.csproj", "{F100579D-65A8-41EF-88A2-2C17304BEDD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuBE", "MenuBE\MenuBE.csproj", "{9C3A7D28-FF18-4850-8CB1-144393FD9C69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MenuBE", "MenuBE\MenuBE.csproj", "{9C3A7D28-FF18-4850-8CB1-144393FD9C69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

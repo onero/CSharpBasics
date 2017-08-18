@@ -8,11 +8,12 @@ namespace ConsoleApp4Menu.Model
         {
             MenuItems = new[]
             {
+                "Exit",
                 "List All Customers",
                 "Add Customer",
                 "Delete Customer",
-                "Edit Customer",
-                "Exit"
+                "Edit Customer", 
+                "Search for customer"
             };
         }
     }
