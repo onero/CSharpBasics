@@ -2,5 +2,12 @@ language: csharp
 mono: none
 dotnet: 2.0.0
 dist: trusty
+solution: FirstCoreSolution.sln
+install:
+  - nuget restore FirstCoreSolution.sln
+  - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
- - dotnet restore
+  - dotnet restore
+  - xbuild /p:Configuration=Release FirstCoreSolution.sln
+  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
+
