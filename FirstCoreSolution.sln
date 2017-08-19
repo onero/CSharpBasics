@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.3
+VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1HelloWorld", "ConsoleApp1\ConsoleApp1HelloWorld.csproj", "{92A92750-AD43-4CE2-9A14-44DD46099825}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MenuBLL", "MenuBLL\MenuBLL.csproj", "{F100579D-65A8-41EF-88A2-2C17304BEDD1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MenuBE", "MenuBE\MenuBE.csproj", "{9C3A7D28-FF18-4850-8CB1-144393FD9C69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XunitMenuTests", "XunitMenuTests\XunitMenuTests.csproj", "{19B5BDA0-6543-4219-AB9E-5E9528D130B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{9C3A7D28-FF18-4850-8CB1-144393FD9C69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C3A7D28-FF18-4850-8CB1-144393FD9C69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C3A7D28-FF18-4850-8CB1-144393FD9C69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19B5BDA0-6543-4219-AB9E-5E9528D130B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19B5BDA0-6543-4219-AB9E-5E9528D130B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19B5BDA0-6543-4219-AB9E-5E9528D130B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19B5BDA0-6543-4219-AB9E-5E9528D130B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
