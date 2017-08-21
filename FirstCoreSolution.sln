@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MenuBLL", "MenuBLL\MenuBLL.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MenuBE", "MenuBE\MenuBE.csproj", "{9C3A7D28-FF18-4850-8CB1-144393FD9C69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XunitMenuTests", "XunitMenuTests\XunitMenuTests.csproj", "{19B5BDA0-6543-4219-AB9E-5E9528D130B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XunitMenuTests", "XunitMenuTests\XunitMenuTests.csproj", "{19B5BDA0-6543-4219-AB9E-5E9528D130B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
